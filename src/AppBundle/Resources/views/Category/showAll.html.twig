@@ -1,0 +1,17 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    {% for category in categories %}
+        <div>
+            <a class="cat_name" href="{{ path('app_category_show', {'id': category.id}) }}">{{ category.name }}</a>
+        </div>
+        <p>
+            <a href="{{ path('app_category_edit', {'id': category.id}) }}">Edit</a>
+            <a href="{{ path('app_category_delete', {'id': category.id}) }}">Delete</a>
+        </p>
+    {% else %}
+        <p>Categories not found</p>
+    {% endfor %}
+    <p><a href="{{ path('app_category_create') }}">New category</a></p>
+{% endblock %}
+

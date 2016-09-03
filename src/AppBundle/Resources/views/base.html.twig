@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="{{ asset('bundles/framework/css/style.css') }}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="header">
+            {{ include('AppBundle::header.html.twig') }}
+        </div>
+        <div class="container">
+            <div class="content">
+        {% block body %}{% endblock %}
+            </div>
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

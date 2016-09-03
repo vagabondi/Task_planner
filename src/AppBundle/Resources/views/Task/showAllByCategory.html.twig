@@ -1,0 +1,13 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    {% for task in tasks %}
+        <p><a href="{{ path('app_task_show', {'id': task.id}) }}">{{ task.name }}</a></p>
+    {% else %}
+        <p>Tasks not found</p>
+    {% endfor %}
+
+{% endblock %}
+
+
+

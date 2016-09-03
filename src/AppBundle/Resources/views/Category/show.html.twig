@@ -1,0 +1,14 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>{{ category.name }}</h1>
+    <p>
+        <a href="{{ path('app_category_edit', {'id': category.id}) }}">Edit</a>
+        <a href="{{ path('app_category_delete', {'id': category.id}) }}">Delete</a>
+        <a href="{{ path('app_task_showallbycategory', {'cat_id': category.id}) }}">Show tasks</a>
+        <a href="{{ path('app_task_create') }}">Add task</a>
+    </p>
+
+
+{% endblock %}
+

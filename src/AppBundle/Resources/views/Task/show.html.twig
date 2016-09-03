@@ -1,0 +1,35 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h1 class="task_name">{{ task.name }}</h1>
+    <p class="info_heading">Opis: </p>
+        <div>{{ task.description }}</div>
+    <p class="info_heading">Deadline: </p>
+        <div>{{ task.deadline|date }}</div>
+    <p class="info_heading">Priorytet: </p>
+        <div>{{ task.priority }}</div>
+    <p class="info_heading">Status: </p>
+        <div>{{ task.status }}</div>
+    <p class="info_heading">Kategoria: </p>
+        <div>{{ task.category.name }}</div>
+    <p class="info_heading">Komentarze: </p>
+    <p>
+        {% for comment in task.comments %}
+            <div class="comment">
+                <p>{{ comment.content }}</p>
+                <p><a href="{{ path('app_comment_delete', {'id':comment.id}) }}">Delete</a></p>
+            </div>
+        {% else %}
+            <p>Comments not found</p>
+        {% endfor %}
+    </p>
+    <p> {{ form(form) }}</p>
+    <ul>
+        <li><a href="{{ path('app_task_edit', {'id': task.id}) }}">Edit</a></li>
+        <li><a href="{{ path('app_task_delete', {'id': task.id}) }}">Delete</a></li>
+        <li><a href="{{ path('app_task_create') }}">Add task</a></li>
+    </ul>
+
+
+{% endblock %}
+

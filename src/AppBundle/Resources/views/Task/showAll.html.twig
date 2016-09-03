@@ -1,0 +1,16 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    {% for tasks in allTasks %}
+        {%  for task in tasks %}
+            <p>
+                <a href="{{ path('app_task_show', {'id': task.id}) }}">{{ task.name }}</a>
+                <a href="{{ path('app_task_edit', {'id': task.id}) }}">Edit</a>
+                <a href="{{ path('app_task_delete', {'id': task.id}) }}">Delete</a>
+            </p>
+        {% endfor %}
+    {% else %}
+        <p>Tasks not found</p>
+    {% endfor %}
+    <p><a href="{{ path('app_task_create') }}">New task</a></p>
+{% endblock %}
